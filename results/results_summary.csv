@@ -1,0 +1,7 @@
+Experiment,FPS,Accuracy,Test Samples
+resnet,1fps,1.0,497
+resnet,30fps,1.0,506
+autoencoder_rf,1fps,1.0,497
+autoencoder_rf,30fps,1.0,506
+profiles_rf,1fps,1.0,13646
+profiles_rf,30fps,1.0,14999

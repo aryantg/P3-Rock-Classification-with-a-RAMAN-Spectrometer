@@ -1,0 +1,16 @@
+{
+  "fps": "30fps",
+  "test_accuracy": 1.0,
+  "train_accuracy": 1.0,
+  "n_test_samples": 14999,
+  "n_test_errors": 0,
+  "classes": [
+    "Albit",
+    "Calcite",
+    "Dolomit",
+    "Feldspat",
+    "Quarz",
+    "Rhodocrosite",
+    "Tile"
+  ]
+}
