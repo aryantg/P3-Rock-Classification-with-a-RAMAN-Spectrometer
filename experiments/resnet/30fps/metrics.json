@@ -1,0 +1,33 @@
+{
+  "fps": "30fps",
+  "num_classes": 7,
+  "best_val_accuracy": 1.0,
+  "test_accuracy": 1.0,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.03747847756664943,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.00021439876340919578,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.044078983989103496,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.00719594538171054,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.0005116605158931749,
+      "val_accuracy": 1.0
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "fps": "1fps",
+  "num_classes": 7,
+  "best_val_accuracy": 1.0,
+  "test_accuracy": 1.0,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.03017480467819804,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.00038236774666837583,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 3,
+      "train_loss": 6.679740457574582e-05,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 4,
+      "train_loss": 6.758713167190792e-05,
+      "val_accuracy": 1.0
+    },
+    {
+      "epoch": 5,
+      "train_loss": 8.520699601567392e-05,
+      "val_accuracy": 1.0
+    }
+  ]
+}

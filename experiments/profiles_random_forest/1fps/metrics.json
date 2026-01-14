@@ -1,0 +1,16 @@
+{
+  "accuracy": 1.0,
+  "n_samples_train": 122810,
+  "n_samples_test": 13646,
+  "n_features": 2369,
+  "n_estimators": 300,
+  "classes": [
+    "Albit",
+    "Calcite",
+    "Dolomit",
+    "Feldspat",
+    "Quarz",
+    "Rhodocrosite",
+    "Tile"
+  ]
+}
