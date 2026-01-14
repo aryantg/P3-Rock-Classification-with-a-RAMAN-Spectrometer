@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 import torch
+import torch.nn as nn
 import numpy as np
 import joblib
 from PIL import Image
@@ -13,7 +14,7 @@ from torchvision import models, transforms
 # IMAGE_PATH = r"R:/MUL/Courses/Applied ML/raman-mineral-classification/experiments/sample_for_inference/SPECTRAL_Albit113_planar1_30FPS_395mW_30FPS_42_32986us_2025_09_05-08_39_02_609.bmp"
 IMAGE_PATH = r"R:/MUL/Courses/Applied ML/raman-mineral-classification/experiments/sample_for_inference/SPECTRAL_Rhodochrosite_planar1_30FPS_396mW_30FPS_42_32986us_2025_08_20-11_45_49_980.bmp"
 
-MODEL_TYPE = "resnet"       # "resnet" or "autoencoder"
+MODEL_TYPE = "autoencoder"       # "resnet" or "autoencoder"
 FPS_TYPE   = "30fps"         # "1fps" or "30fps"
 # -------------------------------------------------
 
@@ -36,6 +37,28 @@ from notebooks.config import DEVICE, EXP_DIR_ROOT, LATENT_DIM, DROPOUT
 
 device = torch.device(DEVICE)
 print(f"Using device: {device}")
+
+
+# -------------------------------------------------
+# AutoEncoder Class Definition
+# -------------------------------------------------
+class AutoEncoder(nn.Module):
+    """Simple 2-layer convolutional autoencoder."""
+    def __init__(self, latent_dim=32):
+        super().__init__()
+        self.enc = nn.Sequential(
+            nn.Conv2d(3, 16, 3, 2, 1), nn.ReLU(),
+            nn.Conv2d(16, 32, 3, 2, 1), nn.ReLU()
+        )
+        self.dec = nn.Sequential(
+            nn.ConvTranspose2d(32, 16, 4, 2, 1), nn.ReLU(),
+            nn.ConvTranspose2d(16, 3, 4, 2, 1), nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        x = x.to(next(self.parameters()).device)
+        z = self.enc(x)
+        return self.dec(z), z
 
 
 # -------------------------------------------------
@@ -109,8 +132,6 @@ def infer_resnet(image_path):
 # AutoEncoder + Random Forest inference
 # =================================================
 def infer_autoencoder_rf(image_path):
-    from models.autoencoder import AutoEncoder
-
     exp_dir = EXP_DIR_ROOT / "autoencoder_rf" / FPS_TYPE
     ae_path = exp_dir / "autoencoder_best.pt"
     rf_path = exp_dir / "rf.pkl"
