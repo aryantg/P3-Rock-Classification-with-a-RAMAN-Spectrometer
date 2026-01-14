@@ -50,20 +50,6 @@ data/raw/
 data/processed/
 
 # ================================
-# Model Checkpoints & Experiments
-# ================================
-experiments/
-# Keep structure but ignore contents
-!experiments/.gitkeep
-
-# ================================
-# Results & Outputs
-# ================================
-results/
-# Keep structure but ignore contents
-!results/.gitkeep
-
-# ================================
 # Jupyter Notebook
 # ================================
 .ipynb_checkpoints/
@@ -88,4 +74,3 @@ Thumbs.db
 *.tmp
 *.bak
 *.log
-*.csv~
